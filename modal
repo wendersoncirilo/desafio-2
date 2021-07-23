@@ -1,0 +1,49 @@
+ <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen-sm-down">
+            <div class="modal-content">
+
+              <!-- costumer address title  /-->
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Endereços de: <span id="clientName"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <!-- costumer address table  -->
+              <div class="modal-body">               
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Rua</th>
+                      <th scope="col">Numero</th>
+                      <th scope="col">Complemento</th>
+                      <th scope="col">Bairro</th>
+                      <th scope="col">Cidade</th>
+                      <th scope="col">País</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">CEP</th>
+                      <th scope="col">Ponto de referência</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Rua</td>
+                      <td>Numero</td>
+                      <td>Complemento</td>
+                      <td>Bairro</td>
+                      <td>Cidade</td>
+                      <td>País</td>
+                      <td>Estado</td>
+                      <td>CEP</td>
+                      <td>Ponto de referência</td>
+                    </tr>
+                  </tbody>
+                </table>                
+              </div>
+              <!-- /costumer address table -->           
+            </div>
+          </div>
+        </div> 

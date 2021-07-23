@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Simple calendar width js and bootstrap">
+  <meta name="keywords" content="HTML, CSS, JavaScript, bootstrap, calendar">
+  <meta name="author" content="Wenderson Cirilo">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--Boostrap /-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/src/css/custom_navbar.css" />
+
+  <!-- Tab title and icon -->
+  <link rel="icon" href="/assets/resources/logo.png" />
+  <title>Market inventory - Online Store </title>
+</head>
+
+<body>
+  <!-- navbar menu -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">     
+      <!-- menu container -->
+      <div class="container">
+
+        <!-- brand container -->
+        <div class="flex-column">
+          <img class="brand-icon" src="/assets/resources/brand_icon.png" alt="">
+          <a class="navbar-brand" href="/"><b>market inventory</b></a>
+        </div>
+        <!-- /brand container -->
+
+        <!-- toggle nav button  -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- /toggle nav button  -->
+        
+        <!-- list menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="collapseExample">         
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="/clientList.html" class="nav-link text-white">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a href="/productList.html" class="nav-link text-white">Produtos</a>
+            </li>
+          </ul>        
+        </div>
+        <!-- /list menu  -->
+
+      </div>
+      <!-- /menu container -->
+    </nav>
+  </header>
+  <!-- navbar menu /-->
+
+  <!-- registers form -->
+  <div class="container pb-5">
+    <main>
+      <!-- products form -->
+      <section id="productRegister">
+
+        <!-- title /-->
+        <div class="py-5 text-center">
+          <h2><b> Cadastro de Produtos </b></h2>
+        </div>
+
+        <!-- form of product register /-->
+        <form class="needs-validation" novalidate>
+          <!-- product data -->
+          <div class="row  g-5">
+
+            <!-- product name /-->
+            <div class="col-12">
+              <label for="productName" class="form-label">Nome
+                <span class="text-muted">(Obrigatório)</span>
+              </label>
+              <input type="text" class="form-control" id="productName" placeholder="" value="" required>
+            </div>
+
+            <!-- product category /-->
+            <div class="col-sm-6">
+              <label for="productCategory" class="form-label">Categoria
+                <span class="text-muted">(Obrigatório)</span>
+              </label>
+              <input type="text" class="form-control" id="productCategory" placeholder="limpesa">
+            </div>
+
+            <!-- product description number/-->
+            <div class="col-sm-6">
+              <label for="productDescription" class="form-label">Descrição
+                <span class="text-muted"> (Obrigatório)</span>
+              </label>
+              <input type="text" class="form-control" id="productDescription"
+                placeholder="caixa de leite de 200ml ... ">
+            </div>
+
+            <!-- product store quatity/-->
+            <div class="col-sm-4">
+              <label for="productStoreQuatity" class="form-label">Quandidade em estoque:
+                <span class="text-muted text-nowrap"> - Somente números (Obrigatório) </span>
+              </label>
+              <input type="number" class="form-control" id="productQuatity" placeholder="222">
+            </div>
+
+            <!-- product unit cost price /-->
+            <div class="col-sm-4">
+              <label for="productUnitCostPrice" class="form-label"> Custo Unitário:
+                <span class="text-muted text-nowrap"> - Somente números (Obrigatório) </span>
+              </label>
+              <input type="number" step="any" class="form-control" id="productUnitCostPrice" placeholder="22.32">
+            </div>
+
+            <!-- product unit sell price /-->
+            <div class="col-sm-4">
+              <label for="productUnitSellPrice" class="form-label">Valor Unitário:
+                <span class="text-muted text-nowrap"> - Somente números (Obrigatório) </span>
+              </label>
+              <input type="number" step="any" class="form-control" id="productUnitSellPrice" placeholder="22.20">
+            </div>
+
+            <!-- submit button  /-->
+            <div class="col">
+              <hr class="my-4">
+              <button class="w-30 btn btn-danger btn-lg float-end mx-2">Cancelar</button>
+              <button class="w-30 btn btn-primary btn-lg float-end" type="submit">Cadastrar</button>
+            </div>
+
+          </div>
+        </form>
+
+      </section>
+      <!-- products form /-->
+    </main>   
+  </div>
+  <!-- register form /-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>    
+</body>
+
+</html>
