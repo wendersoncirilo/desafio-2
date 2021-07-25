@@ -13,3 +13,6 @@
 
 # Armazenamento
  - Todos os dados são armazenados no local storage do browser
+
+# Acesso
+ - Veja a aplicação em ação no [link.](https://wendersoncirilo-desafio2.netlify.app/) 
