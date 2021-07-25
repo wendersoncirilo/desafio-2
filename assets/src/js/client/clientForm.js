@@ -35,6 +35,7 @@ buttonCancelClient.addEventListener('click', cancelClientForm);
 
 // controls the function of save button
 document.addEventListener('DOMContentLoaded', function () {
+  
   let action = getUrlParameter('action'); 
   clientList = getAllClients();
   if (!clientList) {
@@ -58,6 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     window.location.href = '/clientList.html'
   }
+
+  inputOnlyNumbers();
 }, false);
 
 function addClient() {
@@ -202,3 +205,21 @@ function saveClient(clientList) {
 
 //------------------------------------------------------------------------------------------------
 
+
+//validation inputs
+function inputOnlyNumbers(){
+  inputClientCPF.addEventListener('keypress', onlynumber)
+  inputAddressNumber.addEventListener('keypress', onlynumber)
+  inputAddressZipCode.addEventListener('keypress', onlynumber)
+}
+
+function onlynumber(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key ); 
+  var regex = /^[0-9]+$/;
+  if( !regex.test(key) ) {
+     theEvent.returnValue = false;
+     if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}

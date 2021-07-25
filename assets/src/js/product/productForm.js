@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     window.location.href = '/product  List.html'
   }
+
+  inputOnlyNumbers();
 }, false);
 
 // adds a new product and store it in local storage
@@ -141,6 +143,8 @@ function getProductById(id, productList){
   }
 }
 
+//------------------------------------------------------------------------------------------------
+
 // get all products from local storage
 function getAllProducts() {
   return JSON.parse(localStorage.getItem("TableProducts"));
@@ -150,4 +154,24 @@ function getAllProducts() {
 function saveProduct(productList) {
   let productListJSON = JSON.stringify(productList);
   localStorage.setItem("TableProducts", productListJSON);
+}
+
+//------------------------------------------------------------------------------------------------
+
+//validation inputs
+function inputOnlyNumbers(){
+  inputProductQuantity.addEventListener('keypress', onlynumber)
+  inputProductUnitCostPrice.addEventListener('keypress', onlynumber)
+  inputProductUnitSellPrice.addEventListener('keypress', onlynumber)
+}
+
+function onlynumber(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key ); 
+  var regex = /^[0-9.]+$/;
+  if( !regex.test(key) ) {
+     theEvent.returnValue = false;
+     if(theEvent.preventDefault) theEvent.preventDefault();
+  }
 }
