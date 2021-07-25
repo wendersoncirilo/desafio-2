@@ -28,49 +28,32 @@
 <body id="pageListClients">
   <!-- navbar menu -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-danger border-bottom shadow-sm mb-3">
       <!-- menu container -->
-      <div class="container">
+      <div class="container-fluid">
 
         <!-- brand container -->
         <div class="flex-column">
           <img class="brand-icon" src="/assets/resources/brand_icon.png" alt="">
           <a class="navbar-brand" href="/"><b>market inventory</b></a>
         </div>
-        <!-- /brand container -->
-
-        <!-- toggle nav button  -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-          aria-expanded="false" aria-controls="collapseExample">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- /toggle nav button  -->
-
-        <div class="collapse navbar-collapse justify-content-end" id="collapseExample">
-          <!-- list menu -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="/clientList.html" class="nav-link text-white">Clientes</a>
-            </li>
-            <li class="nav-item">
-              <a href="/productList.html" class="nav-link text-white">Produtos</a>
-            </li>
-          </ul>
-          <!-- /list menu  -->
-        </div>
-        <!-- /menu container -->
+        <!-- /brand container -->       
       </div>
     </nav>
   </header>
   <!-- navbar menu /-->
 
   <!-- list  container -->
-  <div class="container pb-5">
-    <main class="text-center p-lg-5">
+  <div class="container-fluid pb-5">
+    <main class="text-center p-5">
       <h1><b>Bem Vindo</b></h1>
+      <a href="/clientList.html" class="btn btn-primary my-2">Listar Clientes</a>
+      <a href="/productList.html" class="btn btn-success my-2">Listar Produtos</a>
     </main>
   </div>
 
+  <!-- <script src="/assets/src/js/product/productdb.js"></script>
+  <script src="/assets/src/js/client/clientdb.js"></script> -->
 </body>
 
 </html>

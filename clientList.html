@@ -23,14 +23,14 @@
   <title>Market inventory - Online Store </title>
 </head>
 
-  
 
-<body id="pageListClients">
+
+<body  id="pageListClients">
   <!-- navbar menu -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
+    <nav class="navbar w-100 navbar-expand-md navbar-dark bg-danger border-bottom shadow-sm mb-3">
       <!-- menu container -->
-      <div class="container">
+      <div class="container-fluid">
 
         <!-- brand container -->
         <div class="flex-column">
@@ -65,7 +65,7 @@
   <!-- navbar menu /-->
 
   <!-- list  container -->
-  <div class="container pb-5">
+  <div class="container-fluid pb-5">
     <main>
       <!-- constumers list -->
       <section id="costumersList">
@@ -73,23 +73,21 @@
         <!-- title /-->
         <div class="py-5 text-center">
           <h2><b> Lista de Clientes </b></h2>
-          <a href="/clientRegister.html" class="btn btn-primary my-2">Cadastrar</a>
+          <button class="btn btn-primary my-2" id="addClient">Adicionar Clientes</button>
         </div>
 
         <!-- costumers table /-->
-        <table class="table" id="clientTable" >
-          <thead>
+        <div class="table-responsive">
+          <table class="table" id="clientTable">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">CPF</th>
-              <th scope="col">Endereço</th>              
-            </tr>
-          </thead>
-          <tbody>           
-          </tbody>
-        </table>
+              <th scope="col">Endereço</th>
+            </tr>        
+          </table>
+        </div>
 
         <!-- modal address  list -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,21 +96,21 @@
               <!-- title of address table view /-->
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                  Endereços de: <span id="clientName"></span>
+                  Endereço de: <span id="clientName"></span>
                 </h5>
               </div>
               <!-- costumer address table  -->
               <div class="modal-body">
-                <table class="table" id="addressTableView">                 
-                    <tr>
-                      <th scope="col">Rua</th>
-                      <th scope="col">Numero</th>
-                      <th scope="col">Complemento</th>
-                      <th scope="col">Bairro</th>
-                      <th scope="col">Cidade</th>
-                      <th scope="col">Estado</th>
-                      <th scope="col">CEP</th>
-                    </tr>                 
+                <table class="table" id="addressTableView">
+                  <tr>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Complemento</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">CEP</th>
+                  </tr>
                 </table>
               </div>
               <!-- /costumer address table -->
@@ -136,7 +134,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-    <script src="/back_end/clientList.js"></script>
+  <script src="/assets/src/js/client/clientList.js"></script>
 </body>
 
 </html>
