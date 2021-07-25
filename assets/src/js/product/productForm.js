@@ -19,6 +19,8 @@ buttonCancel.addEventListener('click', cancelProductForm);
  *-----------------------------------------------------------------*/
 // controls the function of save button
 document.addEventListener('DOMContentLoaded', function () {
+  inputProductName.focus();
+  
   const queryString = window.location.search;
   let action = getUrlParameter('action');
 
@@ -29,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (action == 'update') {
-    updateProductId = getUrlParameter('id');    
+    updateProductId = getUrlParameter('id');
     getProductById(updateProductId, productList);
 
     buttonSubmit.addEventListener('click', updateProduct);
     buttonSubmit.removeEventListener('click', addProduct);
 
-  } else if(action == 'add')  {
+  } else if (action == 'add') {
 
     buttonSubmit.addEventListener('click', addProduct);
     buttonSubmit.removeEventListener('click', updateProduct);
@@ -44,63 +46,84 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = '/product  List.html'
   }
 
+  setValidationInputs();
   inputOnlyNumbers();
 }, false);
 
 // adds a new product and store it in local storage
 function addProduct() {
-  let newProduct = { id: -1, name: '', category: '', description: '', quantity: -1, cost: -1, price: -1 };
 
-  //get the last product stored in product list
-  if (productList.length > 0) {
-    newProduct.id = productList[(productList.length - 1)].id + 1;
+  if (isFormValid() == true) {
+
+    let newProduct = { id: -1, name: '', category: '', description: '', quantity: -1, cost: -1, price: -1 };
+
+    //get the last product stored in product list
+    if (productList.length > 0) {
+      newProduct.id = productList[(productList.length - 1)].id + 1;
+    } else {
+      newProduct.id = 0;
+    }
+
+    newProduct.name = inputProductName.value;
+    newProduct.category = inputProductCategory.value;
+    newProduct.description = inputProductDescription.value;
+    newProduct.quantity = inputProductQuantity.value;
+    newProduct.cost = inputProductUnitCostPrice.value;
+    newProduct.price = inputProductUnitSellPrice.value;
+
+    productList.push(newProduct);
+    saveProduct(productList);
+    event.preventDefault();
+    window.location.href = '/productForm.html?action=add';
+
   } else {
-    newProduct.id = 0;
+
+    alert('dados incorretos');
+    event.preventDefault();
+    event.stopPropagation();
   }
-
-  newProduct.name = inputProductName.value;
-  newProduct.category = inputProductCategory.value;
-  newProduct.description = inputProductDescription.value;
-  newProduct.quantity = inputProductQuantity.value;
-  newProduct.cost = inputProductUnitCostPrice.value;
-  newProduct.price = inputProductUnitSellPrice.value;
-
-  productList.push(newProduct);
-  saveProduct(productList);
-  event.preventDefault();
-  window.location.href = '/productForm.html?action=add';
 }
 
 function updateProduct() {
-  let updatedProduct = { id: -1, name: '', category: '', description: '', quantity: -1, cost: -1, price: -1 };
-      
-  updatedProduct.id = updateProductId;
-  updatedProduct.name = inputProductName.value;
-  updatedProduct.category = inputProductCategory.value;
-  updatedProduct.description = inputProductDescription.value;
-  updatedProduct.quantity = inputProductQuantity.value;
-  updatedProduct.cost = inputProductUnitCostPrice.value;
-  updatedProduct.price = inputProductUnitSellPrice.value;
-  
-  for (let i = 0; i < productList.length; i++) {
-    const product = productList[i];
-    if (updatedProduct.id == product.id) {
-      productList[i].name = updatedProduct.name;
-      productList[i].category = updatedProduct.category;
-      productList[i].description = updatedProduct.description;
-      productList[i].quantity = updatedProduct.quantity;
-      productList[i].cost = updatedProduct.cost;
-      productList[i].price = updatedProduct.price;
-      break;
-    }  
+
+  if (isFormValid() == true) {
+
+    let updatedProduct = { id: -1, name: '', category: '', description: '', quantity: -1, cost: -1, price: -1 };
+
+    updatedProduct.id = updateProductId;
+    updatedProduct.name = inputProductName.value;
+    updatedProduct.category = inputProductCategory.value;
+    updatedProduct.description = inputProductDescription.value;
+    updatedProduct.quantity = inputProductQuantity.value;
+    updatedProduct.cost = inputProductUnitCostPrice.value;
+    updatedProduct.price = inputProductUnitSellPrice.value;
+
+    for (let i = 0; i < productList.length; i++) {
+      const product = productList[i];
+      if (updatedProduct.id == product.id) {
+        productList[i].name = updatedProduct.name;
+        productList[i].category = updatedProduct.category;
+        productList[i].description = updatedProduct.description;
+        productList[i].quantity = updatedProduct.quantity;
+        productList[i].cost = updatedProduct.cost;
+        productList[i].price = updatedProduct.price;
+        break;
+      }
+    }
+    saveProduct(productList);
+    window.location.href = '/productList.html';
+
+  } else {
+
+    alert('dados incorretos');
+    event.preventDefault();
+    event.stopPropagation();
   }
-  saveProduct(productList);
-  window.location.href = '/productList.html';
 }
 
-function cancelProductForm(){ 
- event.preventDefault();
- window.location.href = '/index.html';
+function cancelProductForm() {
+  event.preventDefault();
+  window.location.href = '/index.html';
 }
 
 /*-----------------------------------------------------------------*
@@ -119,7 +142,7 @@ function getUrlParameter(parameter) {
 }
 
 //loads the product from list and set the inputs text values with product values
-function getProductById(id, productList){
+function getProductById(id, productList) {
 
   let productExists = false;
 
@@ -134,7 +157,7 @@ function getProductById(id, productList){
       inputProductUnitSellPrice.value = product.price;
       productExists = true;
       break;
-    }    
+    }
   }
 
   if (!productExists) {
@@ -159,7 +182,70 @@ function saveProduct(productList) {
 //------------------------------------------------------------------------------------------------
 
 //validation inputs
-function inputOnlyNumbers(){
+
+function isFormValid() {
+
+
+  if (inputProductName.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  if (inputProductCategory.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  if (inputProductDescription.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  //---------------------------------------------------------------------
+
+  if (inputProductQuantity.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  if (inputProductUnitCostPrice.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  if (inputProductUnitSellPrice.classList.contains('is-invalid') == true) {
+    return false
+  }
+
+  return true;
+}
+
+function setValidationInputs() {
+  inputProductName.addEventListener("blur", validateInputsText);
+  inputProductCategory.addEventListener("blur", validateInputsText);
+  inputProductDescription.addEventListener("blur", validateInputsText);
+  inputProductQuantity.addEventListener("blur", validateInputNumber);
+  inputProductUnitCostPrice.addEventListener("blur", validateInputNumber);
+  inputProductUnitSellPrice.addEventListener("blur", validateInputNumber);
+}
+
+function validateInputsText() {
+  if (this.value == '') {
+    this.classList.add('is-invalid');
+    this.classList.remove('is-valid');
+  } else {
+    this.classList.add('is-valid');
+    this.classList.remove('is-invalid');
+  }
+}
+
+function validateInputNumber() {
+  if (this.value.length < 0 || this.value == '') {
+    this.classList.add('is-invalid');
+    this.classList.remove('is-valid');
+  } else {
+    this.classList.add('is-valid');
+    this.classList.remove('is-invalid');
+  }
+
+}
+
+function inputOnlyNumbers() {
   inputProductQuantity.addEventListener('keypress', onlynumber)
   inputProductUnitCostPrice.addEventListener('keypress', onlynumber)
   inputProductUnitSellPrice.addEventListener('keypress', onlynumber)
@@ -168,10 +254,10 @@ function inputOnlyNumbers(){
 function onlynumber(evt) {
   var theEvent = evt || window.event;
   var key = theEvent.keyCode || theEvent.which;
-  key = String.fromCharCode( key ); 
+  key = String.fromCharCode(key);
   var regex = /^[0-9.]+$/;
-  if( !regex.test(key) ) {
-     theEvent.returnValue = false;
-     if(theEvent.preventDefault) theEvent.preventDefault();
+  if (!regex.test(key)) {
+    theEvent.returnValue = false;
+    if (theEvent.preventDefault) theEvent.preventDefault();
   }
 }
