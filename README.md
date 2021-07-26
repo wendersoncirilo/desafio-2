@@ -38,7 +38,7 @@ Para cadastrar um novo registro basta ir em uma das páginas que listam os dados
   - Quantidade
   - Custo
   - Preço
-  - 
+ 
 ### Funcionalidades
  - cadastro de clientes 
  - atualização e exclusão de dados dos clientes
@@ -50,7 +50,7 @@ Para cadastrar um novo registro basta ir em uma das páginas que listam os dados
 # Armazenamento
  - Todos os dados são armazenados no local storage do browser
 
-## Installation
+## Instalação
 
 ### Pré-requisitos
 
