@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     buttonSubmit.removeEventListener('click', updateProduct);
 
   } else {
-    window.location.href = '/product  List.html'
+    window.location.href = '/productList.html'
   }
 
   setValidationInputs();
@@ -74,7 +74,7 @@ function addProduct() {
     productList.push(newProduct);
     saveProduct(productList);
     event.preventDefault();
-    window.location.href = '/productForm.html?action=add';
+    window.location.href = '/productList.html';
 
   } else {
 

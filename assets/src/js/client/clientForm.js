@@ -96,7 +96,7 @@ function addClient() {
     clientList.push(newClient);
     saveClient(clientList);
     event.preventDefault();
-    window.location.href = '/clientForm.html?action=add';
+    window.location.href = '/clientList.html';
 
 
   } else {
